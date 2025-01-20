@@ -1,0 +1,122 @@
+Here’s an algorithmic representation of the operations for a **Binary Search Tree (BST)**:
+
+---
+
+### **1. Create a Binary Search Tree**
+
+1. Initialize the root node to `NULL`.
+2. The tree is empty at this point.
+
+---
+
+### **2. Insert a Node**
+
+1. If `root` is `NULL`:
+   - Create a new node with `key`.
+   - Set this new node as the root.
+2. Else if `key < root.data`:
+   - Recursively call `InsertNode(root.left, key)`.
+3. Else:
+   - Recursively call `InsertNode(root.right, key)`.
+
+---
+
+### **3. Delete a Node**
+
+1. If `root` is `NULL`:
+   - Return `NULL`.
+2. If `key < root.data`:
+   - Recursively call `DeleteNode(root.left, key)`.
+3. If `key > root.data`:
+   - Recursively call `DeleteNode(root.right, key)`.
+4. Else (Node to delete is found):
+   - If the node has no children, delete it.
+   - If the node has one child, replace the node with its child.
+   - If the node has two children:
+     - Find the **in-order successor** (minimum value in the right subtree).
+     - Replace the node’s value with the in-order successor’s value.
+     - Recursively delete the in-order successor.
+
+---
+
+### **4. Traversals**
+#### **4.1 In-Order Traversal**
+
+1. If `root` is not `NULL`:
+   - Call `InOrder(root.left)`.
+   - Print or process `root.data`.
+   - Call `InOrder(root.right)`.
+
+#### **4.2 Pre-Order Traversal**
+
+1. If `root` is not `NULL`:
+   - Print or process `root.data`.
+   - Call `PreOrder(root.left)`.
+   - Call `PreOrder(root.right)`.
+
+#### **4.3 Post-Order Traversal**
+
+1. If `root` is not `NULL`:
+   - Call `PostOrder(root.left)`.
+   - Call `PostOrder(root.right)`.
+   - Print or process `root.data`.
+
+---
+
+### **5. Count Total Number of Nodes**
+
+1. If `root` is `NULL`:
+   - Return 0.
+2. Else:
+   - Return `1 + CountNodes(root.left) + CountNodes(root.right)`.
+
+---
+
+### **6. Count Number of Internal Nodes**
+
+1. If `root` is `NULL` or it is a leaf node (no left or right child):
+   - Return 0.
+2. Else:
+   - Return `1 + CountInternalNodes(root.left) + CountInternalNodes(root.right)`.
+
+---
+
+### **7. Count Number of External Nodes**
+
+1. If `root` is `NULL`:
+   - Return 0.
+2. If `root` is a leaf node (no left or right child):
+   - Return 1.
+3. Else:
+   - Return `CountExternalNodes(root.left) + CountExternalNodes(root.right)`.
+
+---
+
+### **8. Find the Height of the Tree**
+
+1. If `root` is `NULL`:
+   - Return `-1` (or `0` depending on definition of height).
+2. Else:
+   - Return `1 + max(FindHeight(root.left), FindHeight(root.right))`.
+
+---
+
+### **9. Find the Smallest Node**
+
+1. If `root.left` is `NULL`:
+   - Return `root.data`.
+2. Else:
+   - Recursively call `FindSmallest(root.left)`.
+
+---
+
+### **10. Find the Largest Node**
+
+1. If `root.right` is `NULL`:
+   - Return `root.data`.
+2. Else:
+   - Recursively call `FindLargest(root.right)`.
+
+---
+
+This representation provides a modular way to implement operations on a BST. If you need help with the code implementation in any specific language, let me know!
